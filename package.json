@@ -1,7 +1,28 @@
 {
   "name": "bitrix",
   "version": "0.0.0",
+  "description": "Set of packages for Bitrix / Bitrix24 REST API (https://dev.1c-bitrix.ru/rest_help/index.php) to use in NodeJS, Deno and browsers.",
   "license": "MIT",
+  "repository": {
+    "type": "Github",
+    "url": "https://github.com/dobromyslov/bitrix"
+  },
+  "homepage": "https://github.com/dobromyslov/bitrix#readme",
+  "bugs": {
+    "url": "https://github.com/dobromyslov/bitrix/issues"
+  },
+  "author": "Viacheslav Dobromyslov <viacheslav@dobromyslov.ru>",
+  "keywords": [
+    "bitrix",
+    "bitrix24",
+    "rest",
+    "api",
+    "client",
+    "bx24",
+    "typescript",
+    "rest-client",
+    "api-client"
+  ],
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
@@ -31,6 +52,7 @@
     "@nrwl/eslint-plugin-nx": "11.2.12",
     "@nrwl/jest": "11.2.12",
     "@nrwl/linter": "11.2.12",
+    "@nrwl/node": "^11.2.12",
     "@nrwl/tao": "11.2.12",
     "@nrwl/workspace": "11.2.12",
     "@types/jest": "26.0.8",

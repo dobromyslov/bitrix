@@ -1,4 +1,26 @@
 {
   "name": "bitrix-rest-api-core",
-  "version": "0.0.1"
+  "version": "0.1.0",
+  "description": "This library declares interfaces used in [Bitrix and Bitrix24 REST API](https://dev.1c-bitrix.ru/rest_help/index.php).",
+  "license": "MIT",
+  "repository": {
+    "type": "Github",
+    "url": "https://github.com/dobromyslov/bitrix"
+  },
+  "homepage": "https://github.com/dobromyslov/bitrix/packages/bitrix-rest-api-core#readme",
+  "bugs": {
+    "url": "https://github.com/dobromyslov/bitrix/issues"
+  },
+  "author": "Viacheslav Dobromyslov <viacheslav@dobromyslov.ru>",
+  "keywords": [
+    "bitrix",
+    "bitrix24",
+    "rest",
+    "api",
+    "client",
+    "bx24",
+    "typescript",
+    "rest-client",
+    "api-client"
+  ]
 }

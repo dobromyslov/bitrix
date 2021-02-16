@@ -38,6 +38,23 @@
               "packages/bitrix-rest-api-core/*.md"
             ]
           }
+        },
+        "release": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "nx run bitrix-rest-api-core:build"
+              },
+              {
+                "command": "nx run bitrix-rest-api-core:lint"
+              },
+              {
+                "command": "npm publish dist/packages/bitrix-rest-api-core --access public"
+              }
+            ],
+            "parallel": false
+          }
         }
       }
     }

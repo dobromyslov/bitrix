@@ -1,9 +1,47 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
+  "projects": {
+    "bitrix-rest-api-core": {
+      "root": "packages/bitrix-rest-api-core",
+      "sourceRoot": "packages/bitrix-rest-api-core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/bitrix-rest-api-core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/bitrix-rest-api-core"
+          ],
+          "options": {
+            "jestConfig": "packages/bitrix-rest-api-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/packages/bitrix-rest-api-core",
+            "tsConfig": "packages/bitrix-rest-api-core/tsconfig.lib.json",
+            "packageJson": "packages/bitrix-rest-api-core/package.json",
+            "main": "packages/bitrix-rest-api-core/src/index.ts",
+            "assets": [
+              "packages/bitrix-rest-api-core/*.md"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }

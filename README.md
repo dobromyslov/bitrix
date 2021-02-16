@@ -1,12 +1,12 @@
 # Bitrix Workspace
-Set of packages for Bitrix / Bitrix24 REST API (https://dev.1c-bitrix.ru/rest_help/index.php) to use in NodeJS, Deno and browser.
+Set of packages for [Bitrix / Bitrix24 REST API](https://dev.1c-bitrix.ru/rest_help/index.php) to use in NodeJS, Deno and browser.
 
 ## Packages
-* bitrix-rest-api-core
+* [bitrix-rest-api-core](/packages/bitrix-rest-api-core)
 
 ## Features
 * TypeScript
-* NX (https://nx.dev)
+* [NX](https://nx.dev)
 * Extended docs in English
 
 ## License

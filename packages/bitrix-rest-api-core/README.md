@@ -2,12 +2,12 @@
 
 ## Description
 
-This library declares interfaces used in Bitrix and Bitrix24 REST API (https://dev.1c-bitrix.ru/rest_help/index.php).
+This library declares interfaces used in [Bitrix and Bitrix24 REST API](https://dev.1c-bitrix.ru/rest_help/index.php).
 
 ## Features
 * TypeScript interfaces.
 * An improved documentation written in English.
-* Browser and NodeJS compatible.
+* NodeJS, Deno and browser compatible.
 
 ## Installation
 ```bash
@@ -21,24 +21,23 @@ yarn add bitrix-rest-api-core --dev
 ## Interfaces
 
 #### Online Shop (sale)
-
 * PropertyVariant
-* PropertyGroup
+* PropertyGroup (Order property group)
 * Order
-* TradeBinding
-* PropertyValue
+* TradeBinding (Marketplace order binding)
+* PropertyValue (Order property value)
 * BasketItem
-* StatusLang
+* StatusLang (Status localization)
 * Payment
 * Shipment
 * PropertyRelation
-* Property
+* Property (Order property)
 * BasketProperties
 * BusinessValuePersonDomain
 * Status
 * ShipmentItem
 * PersonType
-* TradePlatform
+* TradePlatform (Marketplace)
 
 ## License
 

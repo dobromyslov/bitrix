@@ -1,6 +1,6 @@
 {
   "name": "bitrix-rest-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Client for Bitrix / Bitrix24 REST API suitable for NodeJS, Deno or browsers.",
   "license": "MIT",
   "repository": {

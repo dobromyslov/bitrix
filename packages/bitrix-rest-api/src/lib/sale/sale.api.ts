@@ -9,7 +9,7 @@ import { OrderApi } from './order/order.api';
 export class SaleApi {
   propertyVariant: PropertyVariantApi;
   propertyGroup: unknown;
-  order: unknown;
+  order: OrderApi;
   tradeBinding: unknown;
   propertyValue: unknown;
   basketItem: unknown;

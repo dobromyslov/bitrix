@@ -1,6 +1,6 @@
 export interface ListOptions<T> {
   select?: Array<keyof T>;
-  
+
   /**
    * Examples:
    * 1. By ID:
@@ -15,7 +15,7 @@ export interface ListOptions<T> {
    */
   filter?: Partial<T> | Record<string, unknown>;
 
-  order?: Record<keyof T, 'asc' | 'desc'>;
+  order?: Record<keyof T, 'ASC' | 'DESC'>;
 
   /**
    * Start from the record number received from the `next` attribute

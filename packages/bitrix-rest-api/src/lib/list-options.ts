@@ -15,7 +15,7 @@ export interface ListOptions<T> {
    */
   filter?: Partial<T> | Record<string, unknown>;
 
-  order?: Record<keyof T, 'ASC' | 'DESC'>;
+  order?: Partial<Record<keyof T, 'ASC' | 'DESC'>>;
 
   /**
    * Start from the record number received from the `next` attribute

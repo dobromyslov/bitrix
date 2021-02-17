@@ -10,7 +10,11 @@ export class AbstractEndpoint {
   ) {
   }
 
-  protected async _execute<T>(method: string, data?: Record<string, any>): Promise<Response<T>> {
+  protected async _execute<T>(
+    method: string,
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    data?: Record<string, any>
+  ): Promise<Response<T>> {
     // Convert dates to JSON dates
     // Convert numbers to strings
     const result = await request<Response<T>>({
@@ -41,7 +45,11 @@ export class AbstractEndpoint {
     return result.data;
   }
 
-  protected async _executeList<T>(method: string, resultFieldName: string, options?: ListOptions<any>): Promise<ListResponse<T>> {
+  protected async _executeList<T>(
+    method: string,
+    resultFieldName: string,
+    options?: ListOptions<T>
+  ): Promise<ListResponse<T>> {
     return this._execute<Record<string, T[]>>(method, options)
       .then(response => ({
         result: (response?.result && response.result[resultFieldName]) ?? [],

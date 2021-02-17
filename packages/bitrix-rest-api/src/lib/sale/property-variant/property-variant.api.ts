@@ -38,7 +38,7 @@ export class PropertyVariantApi extends AbstractEndpoint {
     ).then(response => response?.result?.propertyVariant);
   }
 
-  async list(options: ListOptions<PropertyVariant>): Promise<ListResponse<PropertyVariant>> {
+  async list(options?: ListOptions<PropertyVariant>): Promise<ListResponse<PropertyVariant>> {
     return this._executeList<PropertyVariant>(
       'sale.propertyVariant.list',
       'propertyVariant',

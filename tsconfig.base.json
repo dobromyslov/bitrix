@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "bitrix-rest-api-core": ["packages/bitrix-rest-api-core/src/index.ts"]
+      "bitrix-rest-api-core": ["packages/bitrix-rest-api-core/src/index.ts"],
+      "bitrix-rest-api": ["packages/bitrix-rest-api/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

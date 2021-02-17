@@ -15,6 +15,9 @@
       "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
-  "projects": { "bitrix-rest-api-core": { "tags": [] } },
+  "projects": {
+    "bitrix-rest-api-core": { "tags": [] },
+    "bitrix-rest-api": { "tags": [] }
+  },
   "workspaceLayout": { "appsDir": "packages", "libsDir": "packages" }
 }

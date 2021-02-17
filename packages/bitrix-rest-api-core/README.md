@@ -1,7 +1,6 @@
 # bitrix-rest-api-core
 
 ## Description
-
 This library declares interfaces used in [Bitrix and Bitrix24 REST API](https://dev.1c-bitrix.ru/rest_help/index.php).
 
 ## Features
@@ -19,7 +18,6 @@ yarn add bitrix-rest-api-core --dev
 ```
 
 ## Interfaces
-
 #### Online Shop (sale)
 * PropertyVariant
 * PropertyGroup (Order property group)
@@ -40,5 +38,4 @@ yarn add bitrix-rest-api-core --dev
 * TradePlatform (Marketplace)
 
 ## License
-
 MIT (c) 2021 Viacheslav Dobromyslov <<viacheslav@dobromyslov.ru>>

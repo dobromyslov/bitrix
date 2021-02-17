@@ -40,7 +40,7 @@
           }
         },
         "release": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               {
@@ -51,6 +51,66 @@
               },
               {
                 "command": "npm publish dist/packages/bitrix-rest-api-core --access public"
+              }
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
+    "bitrix-rest-api": {
+      "root": "packages/bitrix-rest-api",
+      "sourceRoot": "packages/bitrix-rest-api/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "packages/bitrix-rest-api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/packages/bitrix-rest-api"
+          ],
+          "options": {
+            "jestConfig": "packages/bitrix-rest-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/packages/bitrix-rest-api",
+            "tsConfig": "packages/bitrix-rest-api/tsconfig.lib.json",
+            "packageJson": "packages/bitrix-rest-api/package.json",
+            "main": "packages/bitrix-rest-api/src/index.ts",
+            "assets": [
+              "packages/bitrix-rest-api/*.md"
+            ]
+          }
+        },
+        "release": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "nx run bitrix-rest-api:build"
+              },
+              {
+                "command": "nx run bitrix-rest-api:lint"
+              },
+              {
+                "command": "nx run bitrix-rest-api:test"
+              },
+              {
+                "command": "npm publish dist/packages/bitrix-rest-api --access public"
               }
             ],
             "parallel": false

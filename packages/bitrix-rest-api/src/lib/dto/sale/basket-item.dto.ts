@@ -3,13 +3,24 @@ import { Transform, Type } from 'class-transformer';
 import { dateTimeTransformer } from '../../transformers/date-time-transformer';
 import { BasketPropertyValueDto } from './basket-property-value.dto';
 import { AbstractDto } from '../abstract.dto';
+import { yesNoTransformer } from '../../transformers/yes-no-transformer';
 
 export class BasketItemDto extends AbstractDto implements BasketItem {
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   barcodeMulti: boolean;
+
   basePrice: number;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   canBuy: boolean;
+
   catalogXmlId: string;
   currency: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   customPrice: boolean;
 
   @Type(() => String)
@@ -52,9 +63,17 @@ export class BasketItemDto extends AbstractDto implements BasketItem {
   recommendation: unknown;
   setParentId: unknown;
   sort: number;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   subscribe: boolean;
+
   type: unknown;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   vatIncluded: boolean;
+
   vatRate: string;
   weight: number;
   xmlId: string;

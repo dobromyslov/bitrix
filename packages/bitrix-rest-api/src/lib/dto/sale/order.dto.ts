@@ -6,6 +6,7 @@ import { PaymentDto } from './payment.dto';
 import { PropertyValueDto } from './property-value.dto';
 import { ShipmentDto } from './shipment.dto';
 import { AbstractDto } from '../abstract.dto';
+import { yesNoTransformer } from '../../transformers/yes-no-transformer';
 
 export class OrderDto extends AbstractDto implements Order {
   accountNumber: string;
@@ -15,7 +16,10 @@ export class OrderDto extends AbstractDto implements Order {
   @Type(() => BasketItemDto)
   basketItems: BasketItemDto[];
 
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   canceled: boolean;
+
   comments: string;
   companyId: number;
   currency: string;
@@ -52,6 +56,8 @@ export class OrderDto extends AbstractDto implements Order {
   @Transform(dateTimeTransformer)
   dateUpdate: Date;
 
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   deducted: boolean;
 
   @Type(() => String)
@@ -63,13 +69,24 @@ export class OrderDto extends AbstractDto implements Order {
   empCanceledId: number;
   empMarkedId: number;
   empStatusId: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   externalOrder: boolean;
+
   id: number;
   id1c: string;
   lid: string;
   lockedBy: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   marked: boolean;
+
   orderTopic: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   payed: boolean;
 
   @Type(() => PaymentDto)
@@ -84,7 +101,11 @@ export class OrderDto extends AbstractDto implements Order {
 
   reasonCanceled: string;
   reasonMarked: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   recountFlag: boolean;
+
   recurringId: string;
   responsibleId: number;
 
@@ -96,7 +117,11 @@ export class OrderDto extends AbstractDto implements Order {
   statusXmlId: string;
   storeId: unknown;
   taxValue: number;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   updated1c: boolean;
+
   userDescription: string;
   userId: number;
   version: number;

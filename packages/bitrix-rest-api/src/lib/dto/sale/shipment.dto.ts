@@ -3,15 +3,27 @@ import { Transform, Type } from 'class-transformer';
 import { dateTimeTransformer } from '../../transformers/date-time-transformer';
 import { ShipmentItemDto } from './shipment-item.dto';
 import { AbstractDto } from '../abstract.dto';
+import { yesNoTransformer } from '../../transformers/yes-no-transformer';
 
 export class ShipmentDto extends AbstractDto implements Shipment {
   accountNumber: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   allowDelivery: boolean;
+
   basePriceDelivery: number;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   canceled: boolean;
+
   comments: string;
   companyId: string;
   currency: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   customPriceDelivery: boolean;
 
   @Type(() => String)
@@ -38,6 +50,8 @@ export class ShipmentDto extends AbstractDto implements Shipment {
   @Transform(dateTimeTransformer)
   dateResponsibleId: Date;
 
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   deducted: boolean;
 
   @Type(() => String)
@@ -54,10 +68,18 @@ export class ShipmentDto extends AbstractDto implements Shipment {
   empDeductedId: number;
   empMarkedId: number;
   empResponsibleId: number;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   externalDelivery: boolean;
+
   id: string;
   id1c: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   marked: boolean;
+
   orderId: string;
   priceDelivery: number;
   reasonMarked: string;
@@ -69,7 +91,11 @@ export class ShipmentDto extends AbstractDto implements Shipment {
 
   statusId: string;
   statusXmlId: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   system: boolean;
+
   trackingDescription: string;
 
   @Type(() => String)
@@ -78,7 +104,11 @@ export class ShipmentDto extends AbstractDto implements Shipment {
 
   trackingNumber: string;
   trackingStatus: string;
+
+  @Type(() => String)
+  @Transform(yesNoTransformer)
   updated1c: boolean;
+
   version1c: string;
   xmlId: string;
 }

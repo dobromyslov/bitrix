@@ -103,9 +103,9 @@ export interface BasketItem {
 
   /**
    * VAT rate.
-   * Example: "0.0000"
+   * Example: "0.0000", "0.2000"
    */
-  vatRate: number;
+  vatRate: string;
 
   /**
    * Extra notes.

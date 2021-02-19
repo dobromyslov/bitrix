@@ -15,8 +15,6 @@ export class AbstractEndpoint {
     /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     data?: Record<string, any>
   ): Promise<Response<T>> {
-    // Convert dates to JSON dates
-    // Convert numbers to strings
     const result = await request<Response<T>>({
       method: 'POST',
       url: [

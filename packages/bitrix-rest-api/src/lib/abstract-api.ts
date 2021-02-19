@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Response } from './response';
 import { request } from 'gaxios';
 import { Agent } from 'https';

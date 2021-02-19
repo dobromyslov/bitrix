@@ -6,7 +6,7 @@ export class AbstractDto {
       Object.assign(this, data);
     }
   }
-  
+
   toJSON() {
     return classToPlain(this);
   }

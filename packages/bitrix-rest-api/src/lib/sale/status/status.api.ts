@@ -1,9 +1,11 @@
-import { AbstractEndpoint } from '../../abstract-endpoint';
+import { AbstractApi } from '../../abstract-api';
 import { Field, Status } from 'bitrix-rest-api-core';
 import { ListOptions } from '../../list-options';
 import { ListResponse } from '../../list-response';
+import { StatusDto } from '../../dto/sale/status.dto';
+import { plainToClass } from 'class-transformer';
 
-export class StatusApi extends AbstractEndpoint {
+export class StatusApi extends AbstractApi {
   /**
    * @see https://dev.1c-bitrix.ru/rest_help/sale/status/sale_status_add.php
    * @param id
@@ -18,7 +20,7 @@ export class StatusApi extends AbstractEndpoint {
           type
         }
       }
-    ).then(response => response?.result?.status);
+    ).then(response => plainToClass(StatusDto, response?.result?.status));
   }
 
   /**
@@ -44,7 +46,7 @@ export class StatusApi extends AbstractEndpoint {
       {
         id
       }
-    ).then(response => response?.result?.status);
+    ).then(response => plainToClass(StatusDto, response?.result?.status));
   }
 
   /**
@@ -63,6 +65,7 @@ export class StatusApi extends AbstractEndpoint {
     return this._executeList<Status>(
       'sale.status.list',
       'statuses',
+      StatusDto,
       options
     );
   }
@@ -79,6 +82,6 @@ export class StatusApi extends AbstractEndpoint {
         id,
         fields
       }
-    ).then(response => response?.result?.status);
+    ).then(response => plainToClass(StatusDto, response?.result?.status));
   }
 }

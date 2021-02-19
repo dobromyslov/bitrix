@@ -3,8 +3,9 @@ import { request } from 'gaxios';
 import { Agent } from 'https';
 import { ListOptions } from './list-options';
 import { ListResponse } from './list-response';
+import { ClassConstructor, plainToClass } from 'class-transformer';
 
-export class AbstractEndpoint {
+export class AbstractApi {
   constructor(
     protected webhookUrl: string
   ) {
@@ -46,11 +47,12 @@ export class AbstractEndpoint {
   protected async _executeList<T>(
     method: string,
     resultFieldName: string,
+    resultClassDto: ClassConstructor<T>,
     options?: ListOptions<T>
   ): Promise<ListResponse<T>> {
     return this._execute<Record<string, T[]>>(method, options)
       .then(response => ({
-        result: (response?.result && response.result[resultFieldName]) ?? [],
+        result: (response?.result && response.result[resultFieldName])?.map(value => plainToClass(resultClassDto, value)) ?? [],
         total: response?.total,
         next: response?.next
       }));

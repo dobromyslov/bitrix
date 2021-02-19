@@ -1,9 +1,11 @@
-import { AbstractEndpoint } from '../../abstract-endpoint';
+import { AbstractApi } from '../../abstract-api';
 import { Field, PropertyVariant } from 'bitrix-rest-api-core';
 import { ListOptions } from '../../list-options';
 import { ListResponse } from '../../list-response';
+import { PropertyVariantDto } from '../../dto/sale/property-variant.dto';
+import { plainToClass } from 'class-transformer';
 
-export class PropertyVariantApi extends AbstractEndpoint {
+export class PropertyVariantApi extends AbstractApi {
 
   async add(propertyVariant: PropertyVariant): Promise<PropertyVariant> {
     return this._execute<{propertyVariant: PropertyVariant}>(
@@ -11,7 +13,7 @@ export class PropertyVariantApi extends AbstractEndpoint {
       {
         fields: propertyVariant
       }
-    ).then(response => response?.result?.propertyVariant);
+    ).then(response => plainToClass(PropertyVariantDto, response?.result?.propertyVariant));
   }
 
   async delete(id: string): Promise<boolean> {
@@ -29,7 +31,7 @@ export class PropertyVariantApi extends AbstractEndpoint {
       {
         id
       }
-    ).then(response => response?.result?.propertyVariant);
+    ).then(response => plainToClass(PropertyVariantDto, response?.result?.propertyVariant));
   }
 
   async getFields(): Promise<Record<keyof PropertyVariant, Field>> {
@@ -42,6 +44,7 @@ export class PropertyVariantApi extends AbstractEndpoint {
     return this._executeList<PropertyVariant>(
       'sale.propertyVariant.list',
       'propertyVariant',
+      PropertyVariantDto,
       options
     );
   }
@@ -53,6 +56,6 @@ export class PropertyVariantApi extends AbstractEndpoint {
         id,
         fields
       }
-    ).then(response => response?.result?.propertyVariant);
+    ).then(response => plainToClass(PropertyVariantDto, response?.result?.propertyVariant));
   }
 }

@@ -1,10 +1,10 @@
+import { BasketPropertyValue } from './basket-property-value';
+
 /**
  * Basket item.
  * @see https://dev.1c-bitrix.ru/rest_help/sale/basketitem/resource.php
  * @see https://dev.1c-bitrix.ru/rest_help/sale/basketitem/sale_basketitem_getFields.php
  */
-import { BasketPropertyValue } from './basket-property-value';
-
 export interface BasketItem {
   /**
    * Module.

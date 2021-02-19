@@ -1,7 +1,9 @@
-import { AbstractEndpoint } from '../../abstract-endpoint';
+import { AbstractApi } from '../../abstract-api';
 import { ListOptions } from '../../list-options';
 import { Field, Order } from 'bitrix-rest-api-core';
 import { ListResponse } from '../../list-response';
+import { OrderDto } from '../../dto/sale/order.dto';
+import { plainToClass } from 'class-transformer';
 
 export interface OrderTryAddOrUpdateResult extends Order {
   /**
@@ -20,7 +22,7 @@ export interface OrderTryAddOrUpdateResult extends Order {
 /**
  * @see https://dev.1c-bitrix.ru/rest_help/sale/order/index.php
  */
-export class OrderApi extends AbstractEndpoint {
+export class OrderApi extends AbstractApi {
   /**
    * @see https://dev.1c-bitrix.ru/rest_help/sale/order/sale_order_add.php
    * @param order
@@ -31,7 +33,7 @@ export class OrderApi extends AbstractEndpoint {
       {
         fields: order
       }
-    ).then(response => response?.result?.order);
+    ).then(response => plainToClass(OrderDto, response?.result?.order));
   }
 
   /**
@@ -57,7 +59,7 @@ export class OrderApi extends AbstractEndpoint {
       {
         id
       }
-    ).then(response => response?.result?.order);
+    ).then(response => plainToClass(OrderDto, response?.result?.order));
   }
 
   /**
@@ -77,6 +79,7 @@ export class OrderApi extends AbstractEndpoint {
     return this._executeList<Order>(
       'sale.order.list',
       'orders',
+      OrderDto,
       options
     );
   }
@@ -121,6 +124,6 @@ export class OrderApi extends AbstractEndpoint {
         id,
         fields: order
       }
-    ).then(response => response?.result?.order);
+    ).then(response => plainToClass(OrderDto, response?.result?.order));
   }
 }
